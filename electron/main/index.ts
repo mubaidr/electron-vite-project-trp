@@ -4,26 +4,9 @@ import { fileURLToPath } from "node:url"
 import path from "node:path"
 import os from "node:os"
 import { update } from "./update"
-import pie from "puppeteer-in-electron"
-import puppeteer from "puppeteer-core"
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-async function testPuppeteer() {
-  await pie.initialize(app)
-  const browser = await pie.connect(app, puppeteer)
-
-  const window = new BrowserWindow()
-  const url = "https://google.com/"
-  await window.loadURL(url)
-
-  const page = await pie.getPage(browser, window)
-  console.log(page.url())
-  // window.destroy()
-}
-
-testPuppeteer()
 
 // The built directory structure
 //

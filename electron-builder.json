@@ -5,6 +5,12 @@
   "directories": {
     "output": "release/${version}"
   },
+  "extraResources": [
+    {
+      "from": ".electron-browsers",
+      "to": ".electron-browsers"
+    }
+  ],
   "files": [
     "dist-electron",
     "dist"
@@ -16,26 +22,26 @@
       "zip"
     ]
   },
-  "win": {
-    "target": [
-      {
-        "target": "nsis",
-        "arch": [
-          "x64"
-        ]
-      }
-    ],
-    "artifactName": "${productName}_${version}.${ext}"
-  },
   "nsis": {
-    "oneClick": false,
-    "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
+    "deleteAppDataOnUninstall": false,
+    "oneClick": false,
+    "perMachine": false
   },
   "publish": {
-    "provider": "generic",
     "channel": "latest",
+    "provider": "generic",
     "url": "https://github.com/electron-vite/electron-vite-react/releases/download/v0.9.9/"
+  },
+  "win": {
+    "artifactName": "${productName}_${version}.${ext}",
+    "target": [
+      {
+        "arch": [
+          "x64"
+        ],
+        "target": "nsis"
+      }
+    ]
   }
 }

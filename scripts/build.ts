@@ -60,13 +60,18 @@ function determinePlatforms() {
 
 async function downloadChromeBinary(platform: BrowserPlatform) {
   await install({
-    browser: Browser.CHROMEHEADLESSSHELL,
+    browser: Browser.CHROME,
     cacheDir: `${cacheDir}/${platform}`,
-    buildId: await resolveBuildId(
-      Browser.CHROMEHEADLESSSHELL,
-      platform,
-      "stable"
-    ),
+    buildId: await resolveBuildId(Browser.CHROME, platform, "stable"),
+    downloadProgressCallback(downloadedBytes, totalBytes) {
+      console.log(
+        `📥 Downloading browser binary for platform: ${platform} (${(
+          (downloadedBytes / totalBytes) *
+          100
+        ).toFixed(2)}%)`
+      )
+    },
+    unpack: false,
   })
 }
 

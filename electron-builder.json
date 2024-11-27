@@ -7,6 +7,9 @@
   },
   "extraResources": [
     {
+      "filter": [
+        "**/*"
+      ],
       "from": ".electron-browsers",
       "to": ".electron-browsers"
     }

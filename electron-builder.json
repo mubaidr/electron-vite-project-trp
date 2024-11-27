@@ -5,15 +5,6 @@
   "directories": {
     "output": "release/${version}"
   },
-  "extraResources": [
-    {
-      "filter": [
-        "**/*"
-      ],
-      "from": ".electron-browsers",
-      "to": ".electron-browsers"
-    }
-  ],
   "files": [
     "dist-electron",
     "dist"

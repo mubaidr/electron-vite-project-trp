@@ -13,6 +13,7 @@
   "devDependencies": {
     "@playwright/test": "^1.49.0",
     "@puppeteer/browsers": "^2.4.1",
+    "@types/postcss-import": "~14.0.3",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
@@ -24,6 +25,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.15",
+    "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vite": "^6.0.1",
     "vite-plugin-electron": "^0.29.0",
@@ -35,7 +37,7 @@
   "name": "electron-vite-react",
   "private": true,
   "scripts": {
-    "build": "tsc && vite build && node ./scripts/build.cjs",
+    "build": "tsc && vite build && tsx ./scripts/build.ts",
     "dev": "vite",
     "pretest": "vite build --mode=test",
     "preview": "vite preview",

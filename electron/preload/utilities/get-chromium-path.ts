@@ -1,7 +1,7 @@
 import path from "node:path"
 import fs from "node:fs"
 
-// TODO: load path from {electron resources directory}/.electron-browsers for build
+// TODO: load path from {electron resources directory}/.electron-browsers/platform for build
 
 export async function getChromiumPath() {
   const chromiumPath = path.join(

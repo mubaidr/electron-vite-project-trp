@@ -10,8 +10,8 @@ export async function getChromiumPath() {
     process.platform === "win32"
       ? "chrome.exe"
       : process.platform === "darwin"
-      ? "Chromium.app/Contents/MacOS/Chromium"
-      : "chrome"
+        ? "Chromium.app/Contents/MacOS/Chromium"
+        : "chrome"
   )
 
   if (!fs.existsSync(chromiumPath)) {

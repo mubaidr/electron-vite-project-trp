@@ -28,16 +28,18 @@ function loadBaseConfig() {
 
 function determinePlatforms() {
   const argPlatform = process.argv[2]
-  const argPlatformList = (argPlatform ? argPlatform.split(",") : []) as Array<
-    "linux" | "mac" | "win"
-  >
+  const argPlatformList = (argPlatform ? argPlatform.split(",") : []) as (
+    | "linux"
+    | "mac"
+    | "win"
+  )[]
   const platformMap = {
     linux: BrowserPlatform.LINUX,
     mac: BrowserPlatform.MAC,
     win: BrowserPlatform.WIN64,
   }
 
-  const platformList: Array<BrowserPlatform> = []
+  const platformList: BrowserPlatform[] = []
 
   for (const platform of argPlatformList) {
     if (platform in platformMap) {

@@ -3,12 +3,13 @@
   "typescript.tsc.autoDetect": "off",
   "json.schemas": [
     {
-      "fileMatch": [
-        "/*electron-builder.json5",
-        "/*electron-builder.json"
-      ],
+      "fileMatch": ["/*electron-builder.json5", "/*electron-builder.json"],
       "url": "https://json.schemastore.org/electron-builder"
     }
   ],
+<<<<<<< Updated upstream
   "eslint.experimental.useFlatConfig": true
+=======
+  "cSpell.words": ["domcontentloaded"]
+>>>>>>> Stashed changes
 }

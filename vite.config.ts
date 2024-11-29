@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { rmSync } from "node:fs"
 import path from "node:path"
 import { defineConfig } from "vite"
@@ -12,6 +13,22 @@ export default defineConfig(({ command }) => {
   const isServe = command === "serve"
   const isBuild = command === "build"
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG
+=======
+import { rmSync } from "node:fs";
+import path from "node:path";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import electron from "vite-plugin-electron/simple";
+import pkg from "./package.json";
+
+// https://vitejs.dev/config/
+export default defineConfig(({ command }) => {
+  rmSync("dist-electron", { recursive: true, force: true });
+
+  const isServe = command === "serve";
+  const isBuild = command === "build";
+  const sourcemap = isServe || !!process.env.VSCODE_DEBUG;
+>>>>>>> Stashed changes
 
   return {
     resolve: {
@@ -29,9 +46,13 @@ export default defineConfig(({ command }) => {
             if (process.env.VSCODE_DEBUG) {
               console.log(
                 /* For `.vscode/.debug.script.mjs` */ "[startup] Electron App"
+<<<<<<< Updated upstream
               )
+=======
+              );
+>>>>>>> Stashed changes
             } else {
-              args.startup()
+              args.startup();
             }
           },
           vite: {
@@ -40,9 +61,15 @@ export default defineConfig(({ command }) => {
               minify: isBuild,
               outDir: "dist-electron/main",
               rollupOptions: {
+<<<<<<< Updated upstream
                 external: Object.keys(
                   "dependencies" in pkg ? pkg.dependencies : {}
                 ),
+=======
+                external: [
+                  ...Object.keys("dependencies" in pkg ? pkg.dependencies : {}),
+                ],
+>>>>>>> Stashed changes
               },
             },
           },
@@ -73,12 +100,20 @@ export default defineConfig(({ command }) => {
     server:
       process.env.VSCODE_DEBUG &&
       (() => {
+<<<<<<< Updated upstream
         const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL)
         return {
           host: url.hostname,
           port: +url.port,
         }
+=======
+        const url = new URL(pkg.debug.env.VITE_DEV_SERVER_URL);
+        return {
+          host: url.hostname,
+          port: +url.port,
+        };
+>>>>>>> Stashed changes
       })(),
     clearScreen: false,
-  }
-})
+  };
+});
